@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "com-dialog": "../../components/com-dialog/index",
+        "new-get-coin": "../../components/new-get-coin/index",
+        "get-point": "../../components/get-point/index",
+        "ad-block": "../../components/ad-block/index"
+    }
+}

@@ -1,0 +1,287 @@
+/* 每日签到模块 样式 */
+.sign-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+    background:rgba(0,0,0,0.4);
+}
+.sc-cont{
+    width:670rpx;
+    background:rgba(255,255,255,1);
+    border-radius:16rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    margin-top: 70rpx
+}
+.sc-cont .sc-close-btn{
+    width: 51rpx;
+    height: 51rpx;
+    position: absolute;
+    right: 0;
+    top: -90rpx;
+}
+/* 签到列表 start */
+.sc-cont .sc-bot-box{
+    box-sizing: border-box;
+    padding: 36rpx 24rpx 62rpx;
+}
+.sc-bot-box .sc-bot-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 34rpx;
+}
+.sc-bot-title .sc-ticket{
+    font-size:28rpx;
+    font-weight:600;
+    color:rgba(61,61,61,1);
+    line-height:40rpx;
+}
+.sc-bot-title .sc-ticket .spe{
+    color:rgba(255,0,31,1);
+}
+.sc-bot-title .sc-sign-box{
+    display: flex;
+    align-items: center;
+}
+.sc-sign-box .sc-sign-desc{
+    font-size:24rpx;
+    color:rgba(61,61,61,1);
+    line-height:24rpx;
+    margin-right: 8rpx;
+}
+.sc-sign-box .sc-switch-btn{
+    width:60rpx;
+    height:32rpx;
+    background:rgba(229,229,229,1);
+    border-radius:24rpx;
+    display: flex;
+    align-items: center;
+    margin-right: 4rpx;
+}
+.sc-switch-btn .sc-switch-dot{
+    width:24rpx;
+    height:24rpx;
+    background:rgba(255,255,255,1);
+    border-radius: 100%;
+    margin-left: 4rpx;
+    transition: all 500ms;
+}
+/* switch选中的样式 */
+.sc-bot-box .sc-switch-btn-selected{
+    background:linear-gradient(321deg,rgba(242,62,85,1) 0%,rgba(255,111,130,1) 100%);
+}
+.sc-switch-btn-selected .sc-switch-dot{
+    margin-left: 32rpx;
+}
+.sc-bot-box .sc-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.sc-list .sc-item-box{
+    width:132rpx;
+    height:160rpx;
+    background:linear-gradient(321deg,rgba(242,62,85,1) 0%,rgba(255,111,130,1) 100%);
+    box-shadow:0rpx 6rpx 12rpx 0rpx rgba(255,196,180,1);
+    border-radius:11rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20rpx;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 12rpx;
+}
+.sc-list .sc-item-box7{
+    width:298rpx;
+}
+.sc-list .sc-item-selected{
+    background:rgba(241,241,241,1);
+    box-shadow: none;
+}
+.sc-item-box .sc-ticket-box{
+    width: 112rpx;
+    height: 60rpx;
+    margin: 40rpx 0 28rpx;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+.sc-item-box .sc-date{
+    height:32rpx;
+    font-size:36rpx;
+    font-family:DINAlternate-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    line-height:32rpx;
+    align-self: flex-start;
+    margin-bottom: 10rpx;
+    margin-left: 12rpx;
+}
+.sc-item-box .sc-date-7{
+    position: absolute;
+    left: 12rpx;
+    top: 12rpx;
+}
+.sc-item-box .sc-date-selected{
+    color:rgba(61,61,61,1);
+}
+.sc-item-box .select-gou{
+    width: 32rpx;
+    height: 32rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.sc-item-box .coin-num{
+    font-size:22rpx;
+    color:rgba(255,255,255,1);
+    line-height:24rpx;
+}
+.sc-item-box .coin-num-selected{
+    color:rgba(152,152,152,1);
+}
+.sc-item-box .img-coin{
+    width: 52rpx;
+    height: 52rpx;
+    margin-bottom: 12rpx;
+}
+.sc-item-box .img-gift{
+    width: 100rpx;
+    height: 100rpx;
+    margin-bottom: 4rpx;
+}
+.sc-bot-box .sc-sign-btn{
+    width: 520rpx;
+    height: 94rpx;
+    font-size:32rpx;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    position: relative;
+    margin: 0 auto;
+}
+.sc-bot-box .sc-sign-btn .sign-btn-txt{
+    width: 100%;
+    height: 80rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 80rpx;
+    text-align: center;
+    font-size:32rpx;
+    font-weight:600;
+    color:rgba(255,255,255,1);
+    background:linear-gradient(270deg,rgba(242,62,85,1) 0%,rgba(255,111,130,1) 100%);
+    border-radius: 60rpx;
+}
+.sc-bot-box .sc-sign-btn::before{
+    content: '';
+    width: 20rpx;
+    height: 20rpx;
+    transform: rotate(45deg) translate3d(-50%, 0, 0);
+    background: #F9576C;
+    position: absolute;
+    top: 12rpx;
+    left: 50%;
+    border-radius: 4rpx;
+}
+.sc-bot-box .sc-sign-btn .sign-btn-ok{
+    background:rgba(241,241,241,1);
+    color:rgba(152,152,152,1);
+}
+.sc-bot-box .sign-btn-gay::before{
+    background:rgba(241,241,241,1);
+}
+/* 签到动画样式 */
+.sc-ani-box{
+    width:432rpx;
+    height:280rpx;
+    background:rgba(0,0,0,0.4);
+    border-radius:8rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24rpx 0;
+    position: absolute;
+    top: 344rpx;
+    left: 120rpx;
+    animation: slideInOut 2s;
+    animation-fill-mode: both;
+}
+@keyframes slideInOut {
+    0%{
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        visibility: hidden;
+        opacity: 0;
+    }
+    20%, 80%{
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+        opacity: 1;
+    }
+    100%{
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+.sc-ani-box .title{
+    font-size:24rpx;
+    color:rgba(255,255,255,1);
+    line-height:24rpx;
+    margin-bottom: 8rpx;
+}
+.sc-ani-box .coin{
+    display: flex;
+    align-items: center;
+}
+.sc-ani-box .coin .icon-coin{
+    width:200rpx;
+    height:200rpx;
+}
+.sc-ani-box .coin .coin-num{
+    font-size:60rpx;
+    font-family:DINAlternate-Bold;
+    font-weight:bold;
+    color:rgba(255,238,77,1);
+    line-height:70rpx;
+}
+/* 签到列表 end */
+
+/* 每日推荐 start */
+.sc-cont .recommend{
+    border-top: 2rpx solid #F4F4F4;
+}
+.sc-cont .recommend .title{
+    height:40rpx;
+    font-size:28rpx;
+    font-weight:600;
+    color:rgba(61,61,61,1);
+    line-height:40rpx;
+    margin: 20rpx;
+}
+.sc-cont .recommend .ad-box{
+    width:630rpx;
+    height:224rpx;
+    margin: 0 auto;
+    margin-bottom: 36rpx;
+    border-radius: 8rpx;
+}
+.sc-cont .recommend .ad-box .images{
+    width: 100%;
+    height: 100%;
+    border-radius: 8rpx;
+}
+/* 每日推荐 end */

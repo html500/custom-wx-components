@@ -1,0 +1,65 @@
+<view class="sign-container" hidden="{{hidden}}" catch:touchmove="notDo">
+        <view class="cover"></view>
+        <view class="sc-box">
+            <view class="sc-cont">
+                <image src="../../images/components/close_icon.png" class="sc-close-btn" catchtap="hiddenToast" data-type="hidden"></image>
+                <image src="../../images/components/sign-in/sign-title.png" class="sc-title"></image>
+                <view class="sc-bot-box">
+                    <view class="sc-bot-title">
+                        <view class="sc-ticket">我的抽奖券：{{totalLotteryCouponNum}}张</view>
+                        <view class="sc-sign-box">
+                            <text class="sc-sign-desc">签到提醒</text>
+                            <view class="sc-switch-btn {{signRemind?'sc-switch-btn-selected':''}}" catchtap="switchWarn">
+                                <view class="sc-switch-dot"></view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="sc-list">
+                        <view class="sc-item-box {{item.boxClass}}" wx:for="{{list}}" wx:key="{{index}}">
+                            <view class="sc-ticket-box">
+                                <image src="{{item.bg}}" class="sc-item-bg"></image>
+                                <view class="sc-ticket-cont">
+                                    <text class="sc-ticket-x">x</text>
+                                    <text class="sc-ticket-num">{{item.giftLotteryCouponNum}}</text>
+                                </view>
+                            </view>
+                            <view class="sc-date">{{item.date}}天</view>
+                            <view class="sc-sign-ok" wx:if="{{index<lastSignIndex}}">
+                                <image src="../../images/components/sign-in/sign-ok-text.png" class="sc-ok-image"></image>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="sc-sign-btn sign-btn-ok" wx:if="{{todaySign}}">已签到</view>
+                    <view class="sc-sign-btn" catchtap="clickSign" wx:else>签到领券</view>
+                    <block wx:if="{{todaySign&&false}}">
+                        <!-- 激励视频按钮可观看 start -->
+                        <view class="video-suc" wx:if="{{haveVedioAd}}" catch:tap="videoHandler">
+                            <image src="../../images/common/icon_video.png" class="icon-video"></image>
+                            <view class="desc">看视频＋1抽奖券</view>
+                        </view>
+                        <!-- 激励视频按钮可观看 end -->
+                        <view class="sc-sign-btn sign-btn-ok video-fail" wx:else>视频加载中，请稍后再来</view>
+                    </block>
+                </view>
+            </view>
+            <!-- 签到动画 -->
+            <view class="sc-ani-box" hidden="{{isHiddenAni}}" catchtap="hiddenToast" data-type="isHiddenAni">
+                <view class="cover"></view>
+                <view class="sc-cont2">
+                    <view class="sc-ani">
+                        <image src="../../images/components/sign-in/sign-ani-bg.png" class="sc-rotate-el"></image>
+                        <view class="sc-ticket-box">
+                            <image src="../../images/components/sign-in/sign-1.png" class="sc-ticket-bg sc-ticket-bg3" wx:if="{{ticketNum==3}}"></image>
+                            <image src="../../images/components/sign-in/sign-2.png" class="sc-ticket-bg sc-ticket-bg5" wx:if="{{ticketNum==5}}"></image>
+                            <image src="../../images/components/sign-in/sign-3.png" class="sc-ticket-bg sc-ticket-bg7" wx:if="{{ticketNum==7}}"></image>
+                            <veiw class="sc-num-box {{ticketNum==5?'sc-num-box5':''}} {{ticketNum==7?'sc-num-box7':''}}">
+                                <text class="sc-num-x">x</text>
+                                <text class="sc-num">{{ticketNum}}</text>
+                            </veiw>
+                        </view>
+                        <view class="sc-ticket-desc">恭喜你获得{{ticketNum}}张抽奖券</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>

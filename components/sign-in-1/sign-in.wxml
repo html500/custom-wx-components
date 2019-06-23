@@ -1,0 +1,48 @@
+<view class="sign-container" hidden="{{hidden}}" catch:touchmove="notDo">
+    <view class="sc-cont">
+        <image src="../../images/components/close_icon.png" class="sc-close-btn" catchtap="hiddenToast" data-type="hidden"></image>
+        <!-- 签到列表 start -->
+        <view class="sc-bot-box">
+            <view class="sc-bot-title">
+                <view class="sc-ticket">已连续签到<text class="spe">{{signInfo.lastSignIndex}}</text>天</view>
+                <view class="sc-sign-box">
+                    <text class="sc-sign-desc">签到提醒</text>
+                    <view class="sc-switch-btn {{signInfo.signRemind=='1'?'sc-switch-btn-selected':''}}" catchtap="switchWarn">
+                        <view class="sc-switch-dot" />
+                    </view>
+                </view>
+            </view>
+            <view class="sc-list">
+                <view class="sc-item-box sc-item-box{{index+1}} {{index<signInfo.lastSignIndex?'sc-item-selected':''}}" wx:for="{{signInfo.dailySignConfig}}" wx:key="{{index}}">
+                    <view class="sc-date {{(signInfo.dailySignConfig.length==(index+1))?'sc-date-7':''}} {{index<signInfo.lastSignIndex?'sc-date-selected':''}}">0{{index+1}}</view>
+                    <image class="select-gou" src="../../images/components/sign-in/icon_select_gou.png" wx:if="{{index<signInfo.lastSignIndex}}"></image>
+                    <image class="{{(signInfo.dailySignConfig.length==(index+1))?'img-gift':'img-coin'}}" src="{{(signInfo.dailySignConfig.length==(index+1))?'../../images/components/sign-in/icon_gift.png':'../../images/components/sign-in/icon_coin.png'}}"></image>
+                    <view class="coin-num {{index<signInfo.lastSignIndex?'coin-num-selected':''}}" wx:if="{{(signInfo.dailySignConfig.length==(index+1))}}">超级礼包</view>
+                    <view class="coin-num {{index<signInfo.lastSignIndex?'coin-num-selected':''}}" wx:else>{{item}}幸运币</view>
+                </view>
+            </view>
+            <view class="sc-sign-btn sign-btn-gay" wx:if="{{signInfo.todaySign}}">
+                <view class="sign-btn-txt sign-btn-ok">已签到</view>
+            </view>
+            <view class="sc-sign-btn" catchtap="clickSign" wx:else>
+                <view class="sign-btn-txt">立即签到</view>
+            </view>
+        </view>
+        <!-- 签到列表 end -->
+
+        <!-- 每日推荐 start -->
+        <view class="recommend">
+            <view class="title">今日推荐</view>
+            <view class="ad-box">
+                <ad-block show="{{!hidden}}" showTitle="{{false}}"></ad-block>
+            </view>
+        </view>
+        <!-- 每日推荐 end -->
+    </view>
+</view>
+<!-- 通用弹窗 签到提醒 -->
+<com-dialog show="{{showComDialog}}" type="{{comDialogType}}" confirmTxt="{{comDialogConfirmTxt}}" cancelTxt="{{comDialogCancelTxt}}" desc="{{comDialogDesc}}" bindconfirm="dialogConfirm"></com-dialog>
+<!-- 看视频获取幸运币 -->
+<new-get-coin show="{{showViewVideo}}" coin="{{ticketNum}}" videoCoin="{{signInfo.viewVideoPoint}}" lastSignIndex="{{signInfo.lastSignIndex}}"></new-get-coin>
+<!-- 获取幸运币-->
+<get-point show="{{showPoint}}" pointNum="{{ticketNum}}"></get-point>
